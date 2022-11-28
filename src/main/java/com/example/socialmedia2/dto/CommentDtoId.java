@@ -10,9 +10,10 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostDto extends BaseDto {
+public class CommentDtoId extends BaseDto {
     private Long id;
     private Integer version;
-    private AccountDto account;
-    private Long fileDto;
+    private String comment;
+    private Long accountId;
+    private Long postId;
 }

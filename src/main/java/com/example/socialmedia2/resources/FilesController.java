@@ -2,6 +2,7 @@ package com.example.socialmedia2.resources;
 
 
 import com.example.socialmedia2.entity.FileEntity;
+import com.example.socialmedia2.exceptions.IdNullException;
 import com.example.socialmedia2.message.ResponseMessage;
 import com.example.socialmedia2.service.FileStorageService;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class FilesController {
 
 
     @GetMapping("/files/{id}")
-    public ResponseEntity<byte[]> getFile(@PathVariable Long id) {
+    public ResponseEntity<byte[]> getFile(@PathVariable Long id) throws IdNullException {
         FileEntity fileDB = storageService.getFile(id).orElse(null);
 
         return ResponseEntity.ok()

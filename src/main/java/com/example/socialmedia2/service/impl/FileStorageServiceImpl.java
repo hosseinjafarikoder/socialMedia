@@ -38,7 +38,7 @@ public class FileStorageServiceImpl extends BaseServiceImpl<FileEntity, Long, Fi
     }
 
     @Override
-    public Optional<FileEntity> getFile(Long id) {
+    public Optional<FileEntity> getFile(Long id) throws IdNullException {
         if (id == null) {
             throw new IdNullException("the file Id is null");
         }

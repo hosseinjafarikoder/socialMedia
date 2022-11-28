@@ -14,6 +14,6 @@ public class CommentDto extends BaseDto {
     private Long id;
     private Integer version;
     private String comment;
-    private Long accountId;
-    private Long postId;
+    private AccountDto account;
+    private PostDto post;
 }

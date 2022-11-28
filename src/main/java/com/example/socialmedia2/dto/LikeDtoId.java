@@ -1,6 +1,5 @@
 package com.example.socialmedia2.dto;
 
-
 import com.example.socialmedia2.base.BaseDto;
 import lombok.*;
 
@@ -9,9 +8,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class LikeDto extends BaseDto{
+public class LikeDtoId extends BaseDto{
     private Long id;
     private Integer version;
-    private AccountDto account;
-    private PostDto post;
+    private Long accountId;
+    private Long postId;
 }

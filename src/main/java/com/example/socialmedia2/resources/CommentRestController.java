@@ -1,11 +1,13 @@
 package com.example.socialmedia2.resources;
 
 import com.example.socialmedia2.dto.CommentDto;
+import com.example.socialmedia2.dto.CommentDtoId;
 import com.example.socialmedia2.entity.AccountEntity;
 import com.example.socialmedia2.entity.CommentEntity;
 import com.example.socialmedia2.entity.PostEntity;
 import com.example.socialmedia2.exceptions.BaseException;
 import com.example.socialmedia2.mapper.CommentMapper;
+import com.example.socialmedia2.mapper.CommentMapperId;
 import com.example.socialmedia2.service.AccountService;
 import com.example.socialmedia2.service.CommentService;
 import com.example.socialmedia2.service.PostService;
@@ -21,14 +23,15 @@ import java.security.Principal;
 public class CommentRestController {
     private final CommentService commentService;
     private final CommentMapper commentMapper;
+    private final CommentMapperId commentMapperId;
     private final PostService postService;
     private final AccountService accountService;
 
     @PostMapping
-    public CommentDto createComment(Principal principal, @RequestBody CommentDto commentDto) throws BaseException {
+    public CommentDto createComment(Principal principal, @RequestBody CommentDtoId commentDtoId) throws BaseException {
         AccountEntity accountEntity = accountService.findByUsername(principal.getName());
-        CommentEntity commentEntity = commentMapper.convertDtoToT(commentDto);
-        PostEntity post = postService.findById(commentDto.getPostId());
+        CommentEntity commentEntity = commentMapperId.convertDtoToT(commentDtoId);
+        PostEntity post = postService.findById(commentDtoId.getPostId());
         AccountEntity account = accountService.findById(accountEntity.getId());
         commentEntity.setPost(post);
         commentEntity.setAccount(account);

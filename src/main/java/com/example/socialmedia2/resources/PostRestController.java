@@ -1,11 +1,13 @@
 package com.example.socialmedia2.resources;
 
 import com.example.socialmedia2.dto.PostDto;
+import com.example.socialmedia2.dto.PostDtoId;
 import com.example.socialmedia2.entity.AccountEntity;
 import com.example.socialmedia2.entity.FileEntity;
 import com.example.socialmedia2.entity.PostEntity;
 import com.example.socialmedia2.exceptions.BaseException;
 import com.example.socialmedia2.mapper.PostMapper;
+import com.example.socialmedia2.mapper.PostMapperId;
 import com.example.socialmedia2.service.AccountService;
 import com.example.socialmedia2.service.FileStorageService;
 import com.example.socialmedia2.service.PostService;
@@ -23,13 +25,14 @@ public class PostRestController {
     private final PostService postService;
     private final FileStorageService fileService;
     private final PostMapper postMapper;
+    private final PostMapperId postMapperId;
     private final AccountService accountService;
 
     @PutMapping
-    public PostDto updatePost(Principal principal, @RequestBody PostDto postDto) throws BaseException {
+    public PostDto updatePost(Principal principal, @RequestBody PostDtoId postDtoId) throws BaseException {
         AccountEntity accountEntity = accountService.findByUsername(principal.getName());
-        PostEntity postEntity = postMapper.convertDtoToT(postDto);
-        FileEntity file = fileService.getFile(postDto.getFileDto()).orElse(null);
+        PostEntity postEntity = postMapperId.convertDtoToT(postDtoId);
+        FileEntity file = fileService.getFile(postDtoId.getFileDto()).orElse(null);
         AccountEntity account = accountService.findById(accountEntity.getId());
         postEntity.setFileEntity(file);
         postEntity.setAccount(account);

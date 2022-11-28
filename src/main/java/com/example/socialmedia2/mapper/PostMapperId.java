@@ -8,5 +8,5 @@ import org.mapstruct.Mapper;
 
 
 @Mapper
-public interface PostMapper extends BaseMapper<PostEntity , PostDto> {
+public interface PostMapperId extends BaseMapper<PostEntity , PostDtoId> {
 }
