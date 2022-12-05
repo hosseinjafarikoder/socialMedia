@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @ToString
 public class AccountDto extends BaseDto {
     private Long id;
-    private Integer version;
+//    private Integer version;
     @NotBlank
     private String firstName;
     @NotBlank

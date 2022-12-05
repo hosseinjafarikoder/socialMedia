@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PostDtoId extends BaseDto {
     private Long id;
-    private Integer version;
+//    private Integer version;
     private Long accountId;
     private Long fileDto;
 }

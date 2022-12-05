@@ -13,14 +13,13 @@ import java.io.Serializable;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class BaseServiceImpl<T extends BaseEntity, ID extends Serializable,
         R extends JpaRepository<T, ID>> implements BaseService<T, ID> {
 
     protected final R repository;
 
     @Override
-    @Transactional
     public T saveOrUpdate(T t) throws BaseException {
         return repository.save(t);
     }

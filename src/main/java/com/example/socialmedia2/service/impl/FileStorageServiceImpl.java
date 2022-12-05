@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly = false)
+@Transactional
 public class FileStorageServiceImpl extends BaseServiceImpl<FileEntity, Long, FileDBRepository> implements FileStorageService {
 
     @Autowired

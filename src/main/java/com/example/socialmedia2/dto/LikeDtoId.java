@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 public class LikeDtoId extends BaseDto{
     private Long id;
-    private Integer version;
+//    private Integer version;
     private Long accountId;
     private Long postId;
 }

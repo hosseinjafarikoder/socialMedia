@@ -52,8 +52,7 @@ public class AccountEntity extends BaseEntity {
 
 
     //   Only for testing by constructor
-    public AccountEntity(Long id, Integer version, String firstName, String lastName, String username, String password, Set<Role> roles, List<PostEntity> post, List<CommentEntity> comment) {
-        super(version);
+    public AccountEntity(Long id, String firstName, String lastName, String username, String password, Set<Role> roles, List<PostEntity> post, List<CommentEntity> comment) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,8 +71,7 @@ public class AccountEntity extends BaseEntity {
         this.password = password;
     }
     //   Only for method testing by constructor
-    public AccountEntity( Integer version, String username, String password) {
-        super(version);
+    public AccountEntity( String username, String password) {
         this.username = username;
         this.password = password;
     }

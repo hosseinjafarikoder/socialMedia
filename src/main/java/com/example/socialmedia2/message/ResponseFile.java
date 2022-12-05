@@ -13,7 +13,7 @@ public class ResponseFile {
         this.size = size;
     }
 
-    public String getName() {
+    public String  getName() {
         return name;
     }
 

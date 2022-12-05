@@ -40,6 +40,17 @@ public class LikeRestController {
         return likeMapper.convertTToDto(likeService.saveOrUpdate(likeEntity));
     }
 
+    @PutMapping
+    public LikeDto updateLike(Principal principal, @RequestBody LikeDtoId likeDtoId) throws BaseException {
+        AccountEntity accountEntity = accountService.findByUsername(principal.getName());
+        LikeEntity likeEntity = likeMapperId.convertDtoToT(likeDtoId);
+        PostEntity post = postService.findById(likeDtoId.getPostId());
+        AccountEntity account = accountService.findById(accountEntity.getId());
+        likeEntity.setPost(post);
+        likeEntity.setAccount(account);
+        return likeMapper.convertTToDto(likeService.saveOrUpdate(likeEntity));
+    }
+
 
     @DeleteMapping("/{id}")
     public void deleteLikeById(@PathVariable Long id) throws BaseException {

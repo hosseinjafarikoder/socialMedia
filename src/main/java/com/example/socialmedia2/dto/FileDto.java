@@ -11,7 +11,7 @@ import lombok.*;
 @ToString
 public class FileDto extends BaseDto {
     private Long id;
-    private Integer version;
+//    private Integer version;
     private String name;
     private String type;
     private byte[] data;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class PostServiceImpl extends BaseServiceImpl<
         PostEntity, Long, PostRepository> implements PostService {
     public PostServiceImpl(PostRepository repository) {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class AccountServiceImpl extends BaseServiceImpl<AccountEntity,
         Long, AccountRepository> implements AccountService {
     public AccountServiceImpl(AccountRepository repository) {
